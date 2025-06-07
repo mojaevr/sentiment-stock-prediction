@@ -407,3 +407,5 @@ lstm_lightning_model.pth
 data sets
 data sets/microsoft_complete_text.pkl
 *.json
+key.txt
+key.txt

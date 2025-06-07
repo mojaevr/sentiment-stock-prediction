@@ -1,0 +1,9 @@
+paths:
+  dataset_path: "data sets/data_to_paper_microsoft_case.pkl"
+  model_save_path: "models/lstm_model.pth"
+
+defaults:
+  - preprocessing
+  - model
+  - training
+  - mlflow

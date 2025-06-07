@@ -1,0 +1,24 @@
+# Иерархический конфиг для обучения модели
+
+# Пути к данным и модели
+input:
+  dataset_path: "data sets/data_to_paper_microsoft_case.pkl"
+  model_save_path: "lstm_lightning_model.pth"
+
+# Гиперпараметры препроцессинга
+preprocessing:
+  percent_of_training: 0.7
+  look_back: 7
+
+# Гиперпараметры модели
+model:
+  input_size: 2  # будет переопределяться автоматически
+  hidden_size: 200
+  dropout: 0.2
+  lr: 0.001
+
+# Гиперпараметры обучения
+train:
+  batch_size: 25
+  max_epochs: 300
+  early_stopping_patience: 10

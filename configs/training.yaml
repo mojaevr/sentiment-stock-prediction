@@ -1,0 +1,4 @@
+training:
+  batch_size: 25
+  max_epochs: 30
+  early_stopping: 10

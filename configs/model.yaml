@@ -1,0 +1,4 @@
+model:
+  hidden_size: 200
+  dropout: 0.2
+  lr: 1e-3
