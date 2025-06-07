@@ -178,7 +178,8 @@ def main(cfg: DictConfig):
 
         # Сохраняем модель
         torch.save(model.state_dict(), cfg.paths.model_save_path)
-        mlflow.pytorch.log_model(model, "model", X_train_all_feat)
+        X_af = X_train_all_feat
+        mlflow.pytorch.log_model(model, "model", input_example=X_af)
 
         # Экспорт в ONNX
         onnx_path = os.path.join("models", "lstm_model.onnx")

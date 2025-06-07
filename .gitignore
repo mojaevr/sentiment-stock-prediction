@@ -409,3 +409,7 @@ data sets/microsoft_complete_text.pkl
 *.json
 key.txt
 key.txt
+outputs
+lightning_logs
+models/*.pth
+plots
