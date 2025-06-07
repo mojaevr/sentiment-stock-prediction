@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "stock-market-lstm"
+package-mode = false
+version = "0.1.0"
+description = "Stock market prediction using LSTM and sentiment analysis"
+authors = ["Your Name <your@email.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.14"
+numpy = "*"
+pandas = "*"
+torch = "*"
+pytorch-lightning = "*"
+hydra-core = "*"
+omegaconf = "*"
+scikit-learn = "*"
+mlflow = "*"
+matplotlib = "*"
+
+[tool.poetry.group.dev.dependencies]
+black = "*"
+flake8 = "*"
+isort = "*"
+pre-commit = "*"
+prettier = {version = "*", optional = true}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
