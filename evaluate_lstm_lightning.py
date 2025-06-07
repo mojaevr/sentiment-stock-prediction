@@ -14,7 +14,7 @@ from train_lstm_lightning import LSTMRegressor, create_dataset
 # Data loading and preprocessing (same as in training)
 result = pd.read_pickle("data sets/data_to_paper_microsoft_case.pkl")
 y = result.MSFT.values.astype("float32").reshape(-1, 1)
-scaler = MinMaxScaler(fure_range=(0, 1))
+scaler = MinMaxScaler(feature_range=(0, 1))
 y = scaler.fit_transform(y)
 X = result.open.values.astype("float32").reshape(-1, 1)
 percent_of_training = 0.7
