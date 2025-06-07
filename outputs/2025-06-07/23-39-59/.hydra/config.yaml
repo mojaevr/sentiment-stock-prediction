@@ -1,0 +1,31 @@
+input:
+  sentiment_path: data sets/microsoft_processed_text_with_time_and_sentiments.pkl
+  dow_jones_path: data sets/df_dow_jones.pkl
+  gensim_path: data sets/microsoft_processed_text_with_time_and_gensim.pkl
+preprocessing:
+  resample_rule: 1d
+  fillna_method: ffill
+  tz_convert: null
+  join_type: inner
+  percent_of_training: 0.7
+  back: 7
+  output_path: data sets/data_to_paper_microsoft_case.pkl
+  scaler:
+    feature_range:
+      min: 0
+      max: 1
+model:
+  hidden_size: 200
+  dropout: 0.2
+  lr: 0.001
+training:
+  batch_size: 25
+  max_epochs: 30
+  early_stopping: 10
+mlflow:
+  tracking_uri: http://127.0.0.1:8080
+  experiment_name: lstm_lightning_experiment
+  plots_dir: plots/
+paths:
+  dataset_path: data sets/data_to_paper_microsoft_case.pkl
+  model_save_path: models/lstm_model.pth

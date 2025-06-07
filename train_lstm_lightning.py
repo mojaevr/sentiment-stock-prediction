@@ -128,7 +128,7 @@ def main(cfg: DictConfig):
         y_train,
         X_test_all_feat,
         y_test,
-        batch_size=cfg.training.batch_size,
+        bs=cfg.training.batch_size,
     )
 
     print("shape =", X_train_all_feat.shape)
