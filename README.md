@@ -11,7 +11,7 @@ _________
 1. **Clone the repository**
 
 ```bash
-git clone <repo-url>
+git clone [<repo-url>](https://github.com/mojaevr/sentiment-stock-prediction.git)
 cd Stock-Market-Prediction-Using-LSTM-and-Online-News-Sentiment-Analysis
 ```
 
