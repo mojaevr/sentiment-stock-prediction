@@ -1,8 +1,59 @@
 # Stock-Market-Prediction-Using-LSTM-and-Online-News-Sentiment-Analysis
 
-An example of stock market prediction using web scrapping to extract online news from https://business.financialpost.com/ and add a simple signal of the sentiment analysis as a extra feature for modeling the stock market prices of Microsoft between 2010 and 2018 using LSTM.
+## Постановка задачи
+
+Задача заключается в создании системы, которая предсказывает цены на акции на основе исторических данных и анализа новостей. Это необходимо для помощи инвесторам и трейдерам в принятии решений, а также для автоматизации торговых стратегий. Система будет использовать нейронные сети для анализа временных рядов и обработки текстовых
+данных из новостей, чтобы учитывать влияние событий на рынок.
+
+## Формат входных и выходных данных
+
+### Входные данные:
+
+1. Исторические данные по ценам акций (например, открытие, закрытие, максимум,
+минимум, объем торгов) в формате временных рядов.
+
+Размерность: (N, T, F), где N — количество акций, T — временные шаги, F —
+количество признаков (например, 5 для OHLCV).
+
+2. Текстовые данные новостей, связанных с компаниями или рынком.
+Размерность: (N, T, S), где S — длина текста (после предобработки).
+
+### Выходные данные:
+1. Прогнозируемая цена акции на следующий временной шаг (например, цена закрытия)
+Размерность: (N, 1).
+
+## Метрики
+
+1. Mean Absolute Error (MAE) — измеряет среднюю абсолютную ошибку в предсказаниях цен в долларах. Целевое значение: MAE < 1-2% от средней цены актива. Это выбрано, так как MAE интерпретируема в реальных единицах и важна
+для финансовых приложений.
+
+2. Root Mean Squared Error (RMSE) — штрафует большие отклонения сильнее, что полезно для оценки стабильности модели. Целевое значение: RMSE < 2-3% от средней цены.
+
+3. Accuracy (точность направления) — процент случаев, когда модель правильно предсказала направление изменения цены. Ожидаемое значение: 60-70%.
 
 
+## Описание данных
+Исторические данные по акциям:
+
+Источник: Yahoo Finance.
+
+Особенности: Данные могут содержать пропуски, шумы или аномалии.
+
+Новостные данные:
+
+Источник: Reuters,
+
+Особенности: Тексты могут быть неструктурированными, содержать шум (например, рекламу).
+
+## Описание модели
+Архитектура:
+
+Для временных рядов: LSTM.
+
+Для текстовых данных: BERT для извлечения эмбеддингов новостей.
+
+Объединение: Concatenate эмбеддингов новостей с выходом LSTM, затем
+полносвязные слои для предсказания.
 
 _________
 
@@ -11,7 +62,7 @@ _________
 1. **Clone the repository**
 
 ```bash
-git clone [<repo-url>](https://github.com/mojaevr/sentiment-stock-prediction.git)
+git clone https://github.com/mojaevr/sentiment-stock-prediction.git
 cd Stock-Market-Prediction-Using-LSTM-and-Online-News-Sentiment-Analysis
 ```
 
@@ -25,6 +76,11 @@ pip install poetry
 
 ```bash
 poetry install
+```
+
+4. **Activate the virtual environment**
+```bash
+env activate
 ```
 
 5. **Install pre-commit hooks**
@@ -73,8 +129,7 @@ python plot_lstm_lightning.py
 
 ### 1. Data Preparation
 
-- Download the folder `_data sets_` (with all required raw data) and place it in the project root.
-- Run the notebook `04 data wrangling` to generate the final dataset `data sets/data_to_paper_microsoft_case.pkl`.
+- Download the folder `_data sets_` using dvc
 
 ### 2. Preprocessing (optional)
 

@@ -413,3 +413,4 @@ outputs
 lightning_logs
 models/*.pth
 plots
+.dvc/

@@ -177,11 +177,15 @@ def main(cfg: DictConfig):
         trainer.fit(model, train_loader, val_loader)
 
         # Сохраняем модель
+        if not os.path.exists("models"):
+            os.mkdir("models")
         torch.save(model.state_dict(), cfg.paths.model_save_path)
         X_af = X_train_all_feat
         mlflow.pytorch.log_model(model, "model", input_example=X_af)
 
         # Экспорт в ONNX
+        if not os.path.exists("models"):
+            os.mkdir("models")
         onnx_path = os.path.join("models", "lstm_model.onnx")
         dummy_input = torch.randn(
             1,

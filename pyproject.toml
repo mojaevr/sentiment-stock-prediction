@@ -16,6 +16,7 @@ omegaconf = "*"
 scikit-learn = "*"
 mlflow = "*"
 matplotlib = "*"
+onnx = "^1.18.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "*"
