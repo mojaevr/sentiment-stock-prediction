@@ -27,12 +27,6 @@ pip install poetry
 poetry install
 ```
 
-4. **Activate the virtual environment**
-
-```bash
-poetry shell
-```
-
 5. **Install pre-commit hooks**
 
 ```bash
@@ -47,7 +41,13 @@ poetry run pre-commit run -a
 
 7. **Prepare data**
 
-- Download the folder `_data sets_` and create the final data set with the notebook `04 data wrangling` as described below.
+```bash
+dvc init
+dvc remote add -d mygdrive gdrive://15ZBdfSVrRd_ih5VrdJvFd07oA-3HcinJ
+dvc remote modify mygdrive gdrive_use_service_account true
+dvc remote modify mygdrive --local gdrive_service_account_json_file_path cred.json
+dvc pull
+```
 
 8. **Run training**
 
